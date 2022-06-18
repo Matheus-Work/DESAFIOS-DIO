@@ -1,0 +1,37 @@
+﻿using System;
+
+namespace Promoção_de_Funcionários
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double salarioantigo, novosalario=0;
+            int codigo, flag;
+            Console.WriteLine("****PROMOÇÃO DE FUNCIONÁRIOS****");
+            do
+            {
+                Console.WriteLine("DIGITE 1 PARA ADMINISTRATIVO\nDIGITE 2 PARA FINANCEIRO\nDIGITE 3 PARA COMERCIAL\nDIGITE 4 PARA RECURSOS HUMANOS");
+                codigo = int.Parse(Console.ReadLine());
+                while (codigo < 1 || codigo > 4)
+                {
+                    Console.WriteLine("Digite o código certo!");
+                }
+                Console.WriteLine("Informe o salário antigo");
+                salarioantigo = double.Parse(Console.ReadLine());
+                switch (codigo)
+                {
+                    case 1: Console.WriteLine("ADMINISTRATIVO"); novosalario = (salarioantigo * 0.05) + salarioantigo; break;
+                    case 2: Console.WriteLine("FINANCEIRO"); novosalario = (salarioantigo * 0.1) + salarioantigo; break;
+                    case 3: Console.WriteLine("COMERCIAL"); novosalario = (salarioantigo * 0.15) + salarioantigo; break;
+                    case 4: Console.WriteLine(" RECURSOS HUMANOS"); novosalario = (salarioantigo * 0.20) + salarioantigo; break;
+                }
+                Console.WriteLine("Seu novo salário é: {0}", novosalario);
+                Console.WriteLine("Deseja parar?\n1 para sim e 2 para não");
+                flag = int.Parse(Console.ReadLine());
+            } while (flag == 2);
+
+
+        }
+    }
+}
